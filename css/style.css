@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto Mono"), local("RobotoMono-Regular"),
+    url("../fonts/RobotoMono-Regular.woff2") format("woff2"),
+    url("../fonts/RobotoMono-Regular.woff") format("woff");
+}
+:root {
+  --yellow: #fad844;
+  --gray: #babab4;
+  --dark-gray: #a9a9a2;
+}
+* {
+  box-sizing: border-box;
+}
+body,
+html {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1em;
+  min-width: 400px;
+}
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+article {
+  width: 100%;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: dashed 3px var(--gray);
+}
+article header,
+.loading {
+  width: calc(100% - 4px);
+  text-align: center;
+  background-color: var(--yellow);
+  border-radius: 3px;
+  box-shadow: 4px 4px var(--gray);
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+.loading {
+  margin-bottom: 0.3em;
+}
+article img,
+article video {
+  width: 100%;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDUwIDUwIj48cGF0aCBmaWxsPSIjYmFiYWI0IiBkPSJNNDMuOTM1IDI1LjE0NWMwLTEwLjMxOC04LjM2NC0xOC42ODMtMTguNjgzLTE4LjY4My0xMC4zMTggMC0xOC42ODMgOC4zNjUtMTguNjgzIDE4LjY4M2g0LjA2OGMwLTguMDcxIDYuNTQzLTE0LjYxNSAxNC42MTUtMTQuNjE1czE0LjYxNSA2LjU0MyAxNC42MTUgMTQuNjE1aDQuMDY4eiI+PGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlVHlwZT0ieG1sIiBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIHR5cGU9InJvdGF0ZSIgZnJvbT0iMCAyNSAyNSIgdG89IjM2MCAyNSAyNSIgZHVyPSIwLjZzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIvPjwvcGF0aD48L3N2Zz4=)
+    center center no-repeat;
+}
+article header a::after {
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+  margin: 0 3px 0 5px;
+}
+footer {
+  display: none;
+  justify-content: space-between;
+}
+footer a {
+  width: 33%;
+  text-decoration: none;
+  padding: 0.5em;
+  border-radius: 3px;
+  background-color: #dadad2;
+}
+footer svg {
+  display: block;
+  margin: auto;
+}
+.arrow:active {
+  box-shadow: inset 0 0 0 4px var(--dark-gray);
+}
+.arrow.left:hover svg {
+  animation: move-left 1s ease infinite;
+}
+.arrow.right:hover svg {
+  animation: move-right 1s ease infinite;
+}
+
+@keyframes move-left {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-6px, 0);
+  }
+}
+
+@keyframes move-right {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(6px, 0);
+  }
+}
