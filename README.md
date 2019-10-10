@@ -1,4 +1,4 @@
-<p align="center"><img width="220px" src="https://github.com/albertocc/Give-Me-A-GIF/blob/master/img/gifs/give-me-a-gif.gif"/></p>
+<p align="center"><img width="220px" src="https://github.com/albertocc/Give-Me-A-GIF/blob/master/img/icon/icon_220.png"/></p>
 <h1 align="center">Give me a GIF!</h1>
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/albertocc/Give-Me-A-GIF/blob/master/LICENSE)
