@@ -14,11 +14,13 @@
 * {
   box-sizing: border-box;
 }
-body,
-html {
+body {
   font-family: "Roboto Mono", monospace;
   font-size: 1em;
-  min-width: 400px;
+  width: 420px;
+  margin: 0;
+  padding: 8px;
+  overflow-y: scroll;
 }
 main {
   display: flex;
