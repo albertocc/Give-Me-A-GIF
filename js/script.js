@@ -15,7 +15,7 @@
   getJson(config.baseUrl)
 
   function getJson (url) {
-    fetch(url)
+    window.fetch(url)
       .then(response => response.json())
       .then(data => getGifs(data))
       .catch(({ message }) => console.error(`Error: ${message}`))
@@ -24,11 +24,11 @@
   function getGifs ({ data }) {
     while (main.firstChild) main.removeChild(main.firstChild)
 
-    for (child of data.children) createPost(child.data)
+    for (const child of data.children) createPost(child.data)
     config.beforeUrl = `${config.baseUrl}?count=${config.page}&before=${data.before}`
     config.afterUrl = `${config.baseUrl}?count=${config.page}&after=${data.after}`
 
-    if (getComputedStyle(footer).display === 'none') { footer.style.display = 'flex' }
+    footer.style.display = 'flex'
     if (config.page > 25) previous.style.visibility = 'visible'
     else previous.style.visibility = 'hidden'
     window.scrollTo(0, 0)
@@ -40,7 +40,7 @@
       const title = document.createElement('header')
       const link = document.createElement('a')
       const post = document.createElement('article')
-      let url = data.url.replace('http://', 'https://')
+      let url = data.url.replace(/^http:\/\//, 'https://')
       title.innerText = data.title
       link.href = `https://reddit.com${data.permalink}`
       link.target = '_blank'
@@ -49,10 +49,10 @@
       post.appendChild(title)
 
       switch (true) {
-        case url.search(/\.gifv/i) !== -1:
+        case url.search(/\.gifv/i) !== -1: {
           const video = document.createElement('video')
           const source = document.createElement('source')
-          url = url.replace('.gifv', '.mp4')
+          url = url.replace(/\.gifv/, '.mp4')
           source.src = url
           source.type = 'video/mp4'
           video.preload = 'auto'
@@ -61,19 +61,23 @@
           video.appendChild(source)
           post.appendChild(video)
           break
-        case url.search(/\.(?:jpg|gif)/i) !== -1:
-          const img = new Image()
+        }
+        case url.search(/\.(?:jpg|gif)/i) !== -1: {
+          const img = new window.Image()
           img.src = url
           post.appendChild(img)
           break
-        case url.search(/gfycat\.com\//i) !== -1:
+        }
+        case url.search(/gfycat\.com\//i) !== -1: {
           const iframe = document.createElement('iframe')
-          url = `${url.replace('gfycat.com/', 'gfycat.com/ifr/')}?controls=0`
+          url = url.replace(/gfycat\.com/, 'gfycat.com/ifr')
+          url = `${url.split('-')[0]}?controls=0`
           iframe.width = '100%'
           iframe.height = 600
           iframe.src = url
           post.appendChild(iframe)
           break
+        }
         default:
           console.log('unknown source :(', url)
       }
