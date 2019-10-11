@@ -70,7 +70,8 @@
         }
         case url.search(/gfycat\.com\//i) !== -1: {
           const iframe = document.createElement('iframe')
-          url = `${url.replace('gfycat.com/', 'gfycat.com/ifr/')}?controls=0`
+          url = url.replace(/gfycat\.com/, 'gfycat.com/ifr/')
+          url = `${url.split('-')[0]}?controls=0`
           iframe.width = '100%'
           iframe.height = 600
           iframe.src = url
