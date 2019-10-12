@@ -9,14 +9,15 @@
 :root {
   --yellow: #fad844;
   --gray: #babab4;
-  --dark-gray: #a9a9a2;
+  --btn-gray: #dadad2;
+  --btn-dark-gray: #a9a9a2;
 }
 * {
   box-sizing: border-box;
 }
 body {
   font-family: "Roboto Mono", monospace;
-  font-size: 1em;
+  font-size: 16px;
   width: 420px;
   margin: 0;
   padding: 8px;
@@ -66,14 +67,14 @@ footer a {
   text-decoration: none;
   padding: 0.5em;
   border-radius: 3px;
-  background-color: #dadad2;
+  background-color: var(--btn-gray);
 }
 footer svg {
   display: block;
   margin: auto;
 }
 .arrow:active {
-  box-shadow: inset 0 0 0 4px var(--dark-gray);
+  box-shadow: inset 0 0 0 4px var(--btn-dark-gray);
 }
 .arrow.left:hover svg {
   animation: move-left 1s ease infinite;
