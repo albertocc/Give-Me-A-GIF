@@ -21,6 +21,10 @@ You need a GIF. You know you need a GIF right now. Install the extension, click 
 
 [![Add to Firefox](https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png)](https://addons.mozilla.org/en-US/firefox/addon/give-me-a-gif)
 
+### Add to Edge
+
+[Get the extension](https://microsoftedge.microsoft.com/addons/detail/lpiobddhnimghdlohnnmommkhkbljnja)
+
 ### Credits
 
 * [Reddit API](https://www.reddit.com/dev/api/)
