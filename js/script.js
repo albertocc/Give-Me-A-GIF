@@ -1,6 +1,7 @@
 (() => {
   const config = {
-    page: 25,
+    limit: 7,
+    count: 7,
     baseUrl: 'https://www.reddit.com/r/gifs.json',
     currentUrl: '',
     afterUrl: '',
@@ -12,7 +13,7 @@
   const next = document.querySelector('.arrow.right')
   const footer = document.querySelector('footer')
 
-  getJson(config.baseUrl)
+  getJson(`${config.baseUrl}?limit=${config.limit}`)
 
   function getJson (url) {
     window.fetch(url)
@@ -25,11 +26,11 @@
     while (main.firstChild) main.removeChild(main.firstChild)
 
     for (const child of data.children) createPost(child.data)
-    config.beforeUrl = `${config.baseUrl}?count=${config.page}&before=${data.before}`
-    config.afterUrl = `${config.baseUrl}?count=${config.page}&after=${data.after}`
+    config.beforeUrl = `${config.baseUrl}?limit=${config.limit}&count=${config.count}&before=${data.before}`
+    config.afterUrl = `${config.baseUrl}?limit=${config.limit}&count=${config.count}&after=${data.after}`
 
     footer.style.display = 'flex'
-    if (config.page > 25) previous.style.visibility = 'visible'
+    if (config.count > config.limit) previous.style.visibility = 'visible'
     else previous.style.visibility = 'hidden'
     window.scrollTo(0, 0)
   }
@@ -65,6 +66,8 @@
         case url.search(/\.(?:jpg|gif)/i) !== -1: {
           const img = new window.Image()
           img.src = url
+          img.loading = 'lazy'
+          img.alt = data.title
           post.appendChild(img)
           break
         }
@@ -75,11 +78,12 @@
           iframe.width = '100%'
           iframe.height = 600
           iframe.src = url
+          iframe.loading = 'lazy'
           post.appendChild(iframe)
           break
         }
         default:
-          console.log('unknown source :(', url)
+          console.log('Unknown source :(', url)
       }
       main.appendChild(post)
     }
@@ -87,14 +91,14 @@
 
   previous.addEventListener('click', e => {
     e.preventDefault()
-    config.page -= 25
+    config.count -= config.limit
     config.currentUrl = config.beforeUrl
     getJson(config.beforeUrl)
   })
 
   next.addEventListener('click', e => {
     e.preventDefault()
-    config.page += 25
+    config.count += config.limit
     config.currentUrl = config.afterUrl
     getJson(config.afterUrl)
   })
