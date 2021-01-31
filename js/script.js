@@ -3,26 +3,30 @@
     limit: 7,
     count: 7,
     baseUrl: 'https://www.reddit.com/r/gifs.json',
-    currentUrl: '',
     afterUrl: '',
     beforeUrl: ''
   }
 
+  const backgroundPage = chrome.extension.getBackgroundPage()
+  if (backgroundPage.currentCount) config.count = backgroundPage.currentCount
+
   const main = document.querySelector('main')
+  const footer = document.querySelector('footer')
   const previous = document.querySelector('.arrow.left')
   const next = document.querySelector('.arrow.right')
-  const footer = document.querySelector('footer')
+  const pagination = document.querySelector('.pagination')
 
-  getJson(`${config.baseUrl}?limit=${config.limit}`)
-
-  function getJson (url) {
+  const getJson = (url) => {
     window.fetch(url)
       .then(response => response.json())
       .then(data => getGifs(data))
       .catch(({ message }) => console.error(`Error: ${message}`))
   }
 
-  function getGifs ({ data }) {
+  if (backgroundPage.currentUrl) getJson(backgroundPage.currentUrl)
+  else getJson(`${config.baseUrl}?limit=${config.limit}`)
+
+  const getGifs = ({ data }) => {
     while (main.firstChild) main.removeChild(main.firstChild)
 
     for (const child of data.children) createPost(child.data)
@@ -32,17 +36,18 @@
     footer.style.display = 'flex'
     if (config.count > config.limit) previous.style.visibility = 'visible'
     else previous.style.visibility = 'hidden'
+    pagination.textContent = config.count / config.limit
     window.scrollTo(0, 0)
   }
 
-  function createPost (data) {
+  const createPost = (data) => {
     if (data.distinguished === 'moderator') return
     if (data.thumbnail.search(/\.(?:jpg|gif|png)/i) !== -1) {
       const title = document.createElement('header')
       const link = document.createElement('a')
       const post = document.createElement('article')
       let url = data.url.replace(/^http:\/\//, 'https://')
-      title.innerText = data.title
+      title.innerHTML = data.title
       link.href = `https://reddit.com${data.permalink}`
       link.target = '_blank'
       link.rel = 'noopener'
@@ -92,14 +97,14 @@
   previous.addEventListener('click', e => {
     e.preventDefault()
     config.count -= config.limit
-    config.currentUrl = config.beforeUrl
+    backgroundPage.saveCurrentPage(config.count, config.beforeUrl)
     getJson(config.beforeUrl)
   })
 
   next.addEventListener('click', e => {
     e.preventDefault()
     config.count += config.limit
-    config.currentUrl = config.afterUrl
+    backgroundPage.saveCurrentPage(config.count, config.afterUrl)
     getJson(config.afterUrl)
   })
 })()
