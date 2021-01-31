@@ -10,9 +10,6 @@
         "48": "img/icon/icon_48.png",
         "128": "img/icon/icon_128.png"
     },
-    "permissions": [
-        "activeTab"
-    ],
     "background": { 
         "scripts": ["js/background.js"]
     },
