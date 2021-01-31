@@ -61,6 +61,7 @@ article header a::after {
 footer {
   display: none;
   justify-content: space-between;
+  align-items: center;
 }
 footer a {
   width: 33%;
