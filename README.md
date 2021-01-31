@@ -5,7 +5,7 @@
 [![chrome web store](https://img.shields.io/chrome-web-store/users/lnilkliokcnoaiodkamnegebhnmckacd.svg?label=chrome%20users)](https://chrome.google.com/webstore/detail/give-me-a-gif/lnilkliokcnoaiodkamnegebhnmckacd)
 [![firefox add-on](https://img.shields.io/amo/users/give-me-a-gif.svg?label=firefox%20users)](https://addons.mozilla.org/en-US/firefox/addon/give-me-a-gif)
 
-### A great tool to help you keep procrastinating :smirk:
+### A great tool to kill your productivity :smirk:
 
 You need a GIF. You know you need a GIF right now. Install the extension, click the icon and get pleasured with the hottest GIFs from [reddit.com/r/gifs](http://reddit.com/r/gifs).
 
@@ -15,7 +15,7 @@ You need a GIF. You know you need a GIF right now. Install the extension, click 
 
 ### Add to Chrome
 
-[![Add to Chrome](https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/webstore/detail/give-me-a-gif/lnilkliokcnoaiodkamnegebhnmckacd)
+[![Add to Chrome](https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chrome.google.com/webstore/detail/give-me-a-gif/lnilkliokcnoaiodkamnegebhnmckacd)
 
 ### Add to Firefox
 
