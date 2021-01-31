@@ -19,7 +19,7 @@ You need a GIF. You know you need a GIF right now. Install the extension, click 
 
 ### Add to Firefox
 
-[![Add to Firefox](https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png)](https://addons.mozilla.org/en-US/firefox/addon/give-me-a-gif)
+[![Add to Firefox](https://raw.githubusercontent.com/mozilla/extension-workshop/master/src/assets/img/documentation/publish/get-the-addon-178x60px.png)](https://addons.mozilla.org/en-US/firefox/addon/give-me-a-gif)
 
 ### Add to Edge
 
