@@ -25,6 +25,10 @@ You need a GIF. You know you need a GIF right now. Install the extension, click 
 
 [Get the extension](https://microsoftedge.microsoft.com/addons/detail/lpiobddhnimghdlohnnmommkhkbljnja)
 
+### Add to Naver Whale
+
+[Get the extension](https://store.whale.naver.com/detail/gmdgbmmfelamafggdkcfmmhgdciinmbd)
+
 ### Credits
 
 * [Reddit API](https://www.reddit.com/dev/api/)
